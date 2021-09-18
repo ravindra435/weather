@@ -1,0 +1,13 @@
+.search-box {
+    overflow: visible;
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 1px solid orange;
+    border-radius: 2px;
+    line-height: 35px;
+ 
+}
+th,td {
+    border:1px solid
+}

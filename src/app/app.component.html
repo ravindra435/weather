@@ -1,0 +1,60 @@
+<div class="container">
+  <form #f="ngForm" (submit)="onSubmit(f)">
+  <div class="row mt-3">
+    <div class="col-md-6 col-12">
+      <h1 style="color: orange;">Weather in your city</h1>
+    </div>
+    
+      <div class="col-md-6 col-12 d-flex ">
+        <div class="mr-2">
+          <input type="text" class="search-box" placeholder="Search City" name="q"
+          [(ngModel)]="data.q" #q="ngModel">
+        </div>
+        <div><button type="submit" style="background-color: orange; color:white; margin-left: 10px;" class="btn"><i
+              class="fa fa-search"></i>search</button></div>
+  
+      </div>
+   
+   
+  </div>
+</form>
+
+  <div class="row mt-5" *ngIf="weatherData.length > 0">
+     <div class="col-md-2 col-12"  *ngFor="let item of weatherData">
+      <table class="table table-bordered " style="border: 1px solid;">
+        <tr >
+          <th style="background-color: orange;">Date:</th>
+          <td  style="background-color: orange;">{{item?.date}}</td>
+          <tr>
+            <tr>
+              <th  colspan="2">temprature</th>
+            </tr>
+            <tr>
+              <th>min</th>
+              <th>max</th>
+            </tr>
+            <tr>
+              <td>{{item?.min | number: '1.0-0'}}</td>
+              <td>{{item?.max | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+              <th>pressure</th>
+              <td>{{item?.pressure | number: '1.0-0'}}</td>
+            </tr>
+            <tr><th>humidity</th>
+            <td>{{item?.humidity | number: '1.0-0'}}</td>
+            </tr> 
+
+         
+      </table>
+
+
+    </div> 
+   
+  </div>
+</div>
+
+<!-- 
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="timer" [fullScreen]="true">
+  <p style="color: white">Processing... </p>
+</ngx-spinner> -->
